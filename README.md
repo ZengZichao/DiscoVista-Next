@@ -1,205 +1,215 @@
 # DiscoVista-Next
 
-**系统发育不一致性可视化与分析工具** — Python 3 全面重写版
+**Phylogenetic discordance visualization and analysis** — a complete Python 3 rewrite
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Platform](https://img.shields.io/badge/platform-windows%20%7C%20macos%20%7C%20linux-lightgrey.svg)]()
 
-## 概述
+**English** | [简体中文](README.zh-CN.md)
 
-DiscoVista-Next 是原 [DiscoVista](https://github.com/esayyari/DiscoVista)（Discordance Visualization Tool）的 Python 3 全面重写版本。原版由 Erfan Sayyari 和 Siavash Mirarab 编写，使用 Python 2 + R 混合架构。本版本将所有 R 依赖（ggplot2, reshape2, plyr, ape, optparse 等）全部改用 Python 3 实现，并新增了基于 qt-material 的图形用户界面。
+## Overview
 
-## 主要特性
+DiscoVista-Next is a complete Python 3 rewrite of the original
+[DiscoVista](https://github.com/esayyari/DiscoVista) (Discordance Visualization Tool),
+written by Erfan Sayyari and Siavash Mirarab on a mixed Python 2 + R stack. This version
+reimplements every R dependency (ggplot2, reshape2, plyr, ape, optparse, …) in Python 3 and
+adds a graphical interface built on qt-material.
 
-- **纯 Python 3**：不再依赖 R 语言或任何 R 扩展包
-- **6 种分析模式**：物种树不一致性、基因树不一致性、GC 含量、占据率、分支统计、相对频率
-- **完整可视化**：使用 matplotlib + seaborn 替代 ggplot2
-- **图形界面**：基于 qt-material 的现代化 GUI，内置 26 个颜色主题
-- **中英文切换**：支持中英文界面国际化
-- **命令行工具**：保留 CLI 接口，兼容原版参数格式
-- **自包含 exe**：可构建独立运行的 exe 文件，无需安装 Python 环境
-- **示例数据**：随仓库提供 1KP 植物数据集的参数文件与获取脚本，方便快速上手
+## Key Features
 
-## 快速开始
+- **Pure Python 3** — no R installation or R packages required
+- **Six analysis modes** — species tree discordance, gene tree discordance, GC content,
+  occupancy, branch statistics, relative frequency
+- **Complete visualization** — matplotlib + seaborn replace ggplot2
+- **Graphical interface** — modern qt-material GUI with 26 built-in color themes
+- **Bilingual UI** — switch between English and Chinese at runtime
+- **Command-line tool** — CLI compatible with the original DiscoVista argument format
+- **Standalone executable** — build a self-contained exe that runs without a Python install
+- **Example data** — 1KP plant dataset parameter files and a fetch script ship with the repo
 
-### 安装
+## Quick Start
+
+### Installation
 
 ```bash
-# 克隆仓库
+# Clone the repository
 git clone https://github.com/ZengZichao/DiscoVista-Next.git
 cd DiscoVista-Next
 
-# 安装依赖
+# Install dependencies
 pip install -r requirements.txt
 
-# 安装包（开发模式）
+# Install the package (development mode)
 pip install -e .
 ```
 
-### 命令行运行
+### Command line
 
 ```bash
-# 物种树不一致性分析
+# Species tree discordance
 discoVista -m 0 -c examples/1KP/parameters/clade-defs.txt \
     -p examples/1KP/species/ -t 95 -o results/
 
-# 基因树不一致性分析
+# Gene tree discordance
 discoVista -m 1 -c examples/1KP/parameters/clade-defs.txt \
     -p examples/1KP/genetrees/filtered/ -t 95 -o results/
 
-# GC 含量分析
+# GC content
 discoVista -m 2 -p examples/1KP/GC/unfiltered/ -o results/
 
-# 占据率分析
+# Occupancy
 discoVista -m 3 -p examples/1KP/occupancy/filtered/ \
     -a examples/1KP/parameters/annotation.txt -o results/
 
-# 分支统计 vs 分支长度
+# Branch support vs branch length
 discoVista -m 4 -p examples/1KP/branchAnalysis/ \
     -r examples/1KP/parameters/rooting.txt \
     -a examples/1KP/parameters/annotation.txt -o results/
 
-# 相对频率分析
+# Relative frequency
 discoVista -m 5 -p examples/1KP/relativeFreq/astral.trim50genes33taxa.no3rd.final-FNA2AA/ \
     -a examples/1KP/parameters/annotation.txt -o results/
 ```
 
-### 启动 GUI
+### Launch the GUI
 
 ```bash
 discoVista-gui
-# 或
+# or
 python -m discovista_next.gui.main
 ```
 
-### 使用独立 exe
+### Use the standalone executable
 
-直接运行 `DiscoVista-Next.exe`，无需安装 Python。
+Run `DiscoVista-Next.exe` directly — no Python installation needed.
 
-1. 双击 `DiscoVista-Next.exe` 启动程序
-2. 点击"加载示例数据"按钮自动填充所有参数路径
-3. 选择分析模式，调整参数
-4. 点击"运行分析"开始分析
-5. 分析完成后，生成的图形将在右侧"绘图显示"面板中展示
+1. Double-click `DiscoVista-Next.exe`
+2. Click **Load Example Data** to fill in all input paths
+3. Choose an analysis mode and adjust the parameters
+4. Click **Run Analysis**
+5. The generated figures appear in the **Plots** panel on the right
 
-### 构建 exe
+### Build the executable
 
 ```bash
 python build_exe.py
-# 或
+# or
 pyinstaller DiscoVista-Next.spec
 ```
 
-构建结果将出现在 `dist/DiscoVista-Next/` 目录下。
+The build output goes to `dist/DiscoVista-Next/`.
 
-## 功能覆盖
+## Feature Coverage
 
-DiscoVista-Next 完全覆盖原版 DiscoVista 的全部功能：
+DiscoVista-Next covers the full feature set of the original DiscoVista:
 
-| 功能 | 原版 | DiscoVista-Next |
-|------|------|----------------|
-| 物种树不一致性分析 | ✅ | ✅ (模式 0) |
-| 基因树不一致性分析 | ✅ | ✅ (模式 1) |
-| GC 含量分析 | ✅ | ✅ (模式 2) |
-| 占据率分析 | ✅ | ✅ (模式 3) |
-| 分支统计 vs 分支长度 | ✅ | ✅ (模式 4) |
-| 相对频率分析 | ✅ | ✅ (模式 5) |
-| 进化支定义文件 | ✅ | ✅ |
-| 注释文件 | ✅ | ✅ |
-| 根定义文件 | ✅ | ✅ |
-| 模型条件重排 | ✅ | ✅ |
-| 进化支重排 | ✅ | ✅ |
-| 缺失数据处理 | ✅ | ✅ |
-| 图形用户界面 | ❌ | ✅ (26 个主题) |
-| 中英文切换 | ❌ | ✅ |
-| 独立 exe | ❌ | ✅ |
-| 示例数据 | ✅ (需手动下载) | ✅ (随仓库提供) |
+| Feature | Original | DiscoVista-Next |
+|---------|----------|-----------------|
+| Species tree discordance | ✅ | ✅ (mode 0) |
+| Gene tree discordance | ✅ | ✅ (mode 1) |
+| GC content analysis | ✅ | ✅ (mode 2) |
+| Occupancy analysis | ✅ | ✅ (mode 3) |
+| Branch support vs branch length | ✅ | ✅ (mode 4) |
+| Relative frequency analysis | ✅ | ✅ (mode 5) |
+| Clade definition file | ✅ | ✅ |
+| Annotation file | ✅ | ✅ |
+| Rooting file | ✅ | ✅ |
+| Model condition reordering | ✅ | ✅ |
+| Clade reordering | ✅ | ✅ |
+| Missing data handling | ✅ | ✅ |
+| Graphical interface | ❌ | ✅ (26 themes) |
+| English/Chinese switching | ❌ | ✅ |
+| Standalone exe | ❌ | ✅ |
+| Example data | ✅ (manual download) | ✅ (in repository) |
 
-## 项目结构
+## Project Structure
 
 ```
 DiscoVista-Next/
-├── discovista_next/           # 主包
-│   ├── __init__.py            # 包初始化，定义分析模式常量
-│   ├── cli/                   # 命令行接口
+├── discovista_next/           # Main package
+│   ├── __init__.py            # Package init, analysis mode constants
+│   ├── cli/                   # Command-line interface
 │   │   └── main.py
-│   ├── core/                  # 核心分析逻辑
-│   │   ├── analyzer.py        # 分析控制器
-│   │   ├── config.py          # 配置与选项处理
-│   │   ├── find_clades.py     # 进化支单系性检测
-│   │   ├── gc_stats.py        # GC 含量统计
-│   │   ├── occupancy.py       # 占据率分析
-│   │   ├── relative_freq.py   # 相对频率分析
-│   │   └── tree_tools.py      # 树操作工具
-│   ├── gui/                   # 图形界面
-│   │   ├── main.py            # GUI 主窗口
-│   │   ├── i18n.py            # 国际化
-│   │   └── runtime_hook.py    # PyInstaller 运行时钩子
-│   ├── resources/             # 图标等资源文件
-│   └── viz/                   # 可视化模块
-│       ├── depict_clades.py   # 进化支可视化
-│       ├── gc_plot.py         # GC 含量绘图
-│       ├── occupancy_plot.py  # 占据率绘图
-│       ├── branch_stat_plot.py # 分支统计绘图
-│       ├── tree_plot.py       # 系统发育树绘图
-│       └── relative_freq_plot.py # 相对频率绘图
-├── docs/                      # 文档
-│   ├── en/                    # 英文文档
-│   └── zh/                    # 中文文档
-├── examples/1KP/              # 示例数据（参数文件 + 获取说明）
-├── build_exe.py               # PyInstaller 构建脚本
-├── DiscoVista-Next.spec       # PyInstaller spec 文件
-├── requirements.txt           # Python 依赖
-├── setup.py                   # 安装配置
-├── LICENSE                    # GPL-3.0 许可证
-└── README.md                  # 本文件
+│   ├── core/                  # Core analysis logic
+│   │   ├── analyzer.py        # Analysis controller
+│   │   ├── config.py          # Configuration and option handling
+│   │   ├── find_clades.py     # Clade monophyly detection
+│   │   ├── gc_stats.py        # GC content statistics
+│   │   ├── occupancy.py       # Occupancy analysis
+│   │   ├── relative_freq.py   # Relative frequency analysis
+│   │   └── tree_tools.py      # Tree manipulation utilities
+│   ├── gui/                   # Graphical interface
+│   │   ├── main.py            # Main window
+│   │   ├── i18n.py            # Internationalization
+│   │   └── runtime_hook.py    # PyInstaller runtime hook
+│   ├── resources/             # Icons and other resources
+│   └── viz/                   # Visualization modules
+│       ├── depict_clades.py   # Clade visualization
+│       ├── gc_plot.py         # GC content plots
+│       ├── occupancy_plot.py  # Occupancy plots
+│       ├── branch_stat_plot.py # Branch statistics plots
+│       ├── tree_plot.py       # Phylogenetic tree plots
+│       └── relative_freq_plot.py # Relative frequency plots
+├── docs/                      # Documentation
+│   ├── en/                    # English docs
+│   └── zh/                    # Chinese docs
+├── examples/1KP/              # Example data (parameter files + fetch instructions)
+├── build_exe.py               # PyInstaller build script
+├── DiscoVista-Next.spec       # PyInstaller spec file
+├── requirements.txt           # Python dependencies
+├── setup.py                   # Installation configuration
+├── LICENSE                    # GPL-3.0 license
+├── README.md                  # This file (English)
+└── README.zh-CN.md            # Chinese README
 ```
 
-## 内置主题
+## Built-in Themes
 
-DiscoVista-Next 包含 qt-material 的全部 26 个颜色主题：
+DiscoVista-Next ships all 26 qt-material color themes:
 
-- **暗色主题（9 个）**：Amber, Blue, Cyan, Lightgreen, Pink, Purple, Red, Teal, Yellow
-- **亮色主题（17 个）**：Amber, Blue, Blue 500, Cyan, Cyan 500, Lightgreen, Lightgreen 500, Orange, Pink, Pink 500, Purple, Purple 500, Red, Red 500, Teal, Teal 500, Yellow
+- **Dark (9)**: Amber, Blue, Cyan, Lightgreen, Pink, Purple, Red, Teal, Yellow
+- **Light (17)**: Amber, Blue, Blue 500, Cyan, Cyan 500, Lightgreen, Lightgreen 500, Orange, Pink, Pink 500, Purple, Purple 500, Red, Red 500, Teal, Teal 500, Yellow
 
-## 示例数据
+## Example Data
 
-仓库中的 `examples/1KP/` 收录了 1KP 植物数据集的参数文件：
+The `examples/1KP/` directory in this repository contains the parameter files of the
+1KP plant dataset:
 
-- `parameters/annotation.txt` — 物种与进化支注释
-- `parameters/clade-defs.txt` — 进化支（split）定义
-- `parameters/rooting.txt` — 外群与定根定义
-- `parameters/newModel.txt`、`parameters/newOrders.txt` — 模型条件与排序
+- `parameters/annotation.txt` — species-to-clade annotation
+- `parameters/clade-defs.txt` — clade (split) definitions
+- `parameters/rooting.txt` — outgroup and rooting definitions
+- `parameters/newModel.txt`, `parameters/newOrders.txt` — model condition and ordering
 
-基因树、序列比对、GC 含量、占据率等大体积数据（解压后约 400 MB）
-不随仓库提供，需从原版 DiscoVista 仓库获取：
+The large data files — gene trees, sequence alignments, GC content, occupancy and so on
+(about 400 MB unpacked) — are not bundled. Fetch them from the original DiscoVista
+repository:
 
 ```bash
 python examples/fetch_data.py
 ```
 
-数据就绪后，在 GUI 中点击"加载示例数据"按钮即可自动填充所有参数路径。
-详见 [示例数据说明](examples/README.md)。
+Once the data is in place, click **Load Example Data** in the GUI to fill in all paths
+automatically. See [examples/README.md](examples/README.md) for details.
 
-## 文档导航
+## Documentation
 
-| 文档 | 说明 |
-|------|------|
-| [安装指南 (中文)](docs/zh/installation.md) | 详细安装步骤 |
-| [使用手册 (中文)](docs/zh/user_guide.md) | 完整使用教程 |
-| [开发者文档 (中文)](docs/zh/developer_guide.md) | 架构设计与开发指南 |
-| [API 参考 (中文)](docs/zh/api_reference.md) | 完整 API 文档 |
-| [FAQ (中文)](docs/zh/faq.md) | 常见问题解答 |
-| [Installation Guide (English)](docs/en/installation.md) | Installation steps |
-| [User Guide (English)](docs/en/user_guide.md) | Complete usage tutorial |
-| [Developer Guide (English)](docs/en/developer_guide.md) | Architecture and development |
-| [API Reference (English)](docs/en/api_reference.md) | Complete API documentation |
-| [FAQ (English)](docs/en/faq.md) | Frequently asked questions |
+| Document | Description |
+|----------|-------------|
+| [Installation Guide](docs/en/installation.md) | Detailed installation steps |
+| [User Guide](docs/en/user_guide.md) | Complete usage tutorial |
+| [Developer Guide](docs/en/developer_guide.md) | Architecture and development |
+| [API Reference](docs/en/api_reference.md) | Complete API documentation |
+| [FAQ](docs/en/faq.md) | Frequently asked questions |
+| [安装指南 (中文)](docs/zh/installation.md) | Detailed installation steps (Chinese) |
+| [使用手册 (中文)](docs/zh/user_guide.md) | Complete usage tutorial (Chinese) |
+| [开发者文档 (中文)](docs/zh/developer_guide.md) | Architecture and development (Chinese) |
+| [API 参考 (中文)](docs/zh/api_reference.md) | Complete API documentation (Chinese) |
+| [FAQ (中文)](docs/zh/faq.md) | Frequently asked questions (Chinese) |
 
-## 开发
+## Development
 
-### 环境搭建
+### Set up an environment
 
 ```bash
 git clone https://github.com/ZengZichao/DiscoVista-Next.git
@@ -208,18 +218,20 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
-### 构建 exe
+### Build the executable
 
 ```bash
 python build_exe.py
 ```
 
-## 引用
+## Citation
 
-如果您在研究中使用 DiscoVista-Next，请引用原始论文：
+If you use DiscoVista-Next in your research, please cite the original paper:
 
-> Sayyari, E., Whitfield, J. B., & Mirarab, S. (2018). DiscoVista: Interpretable Visualizations of Gene Tree Discordance. *Molecular Phylogenetics and Evolution*, 122, 110-115.
+> Sayyari, E., Whitfield, J. B., & Mirarab, S. (2018). DiscoVista: Interpretable
+> Visualizations of Gene Tree Discordance. *Molecular Phylogenetics and Evolution*,
+> 122, 110-115.
 
-## 许可证
+## License
 
 [GPL-3.0](LICENSE)
