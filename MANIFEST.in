@@ -1,0 +1,27 @@
+# MANIFEST.in
+# DiscoVista-Next
+
+include README.md
+include CHANGELOG.md
+include LICENSE
+include requirements.txt
+include setup.py
+include build_exe.py
+include DiscoVista-Next.spec
+
+# 包含资源文件
+recursive-include discovista_next/resources *
+
+# 包含文档
+recursive-include docs *
+
+# 包含示例数据的参数文件与说明（不包含大体积数据）
+recursive-include examples/1KP/parameters *
+include examples/1KP/README
+include examples/README.md
+
+# 排除构建产物
+global-exclude __pycache__/*
+global-exclude *.py[cod]
+global-exclude .DS_Store
+global-exclude Thumbs.db

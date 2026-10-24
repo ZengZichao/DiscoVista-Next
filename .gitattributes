@@ -1,0 +1,13 @@
+# 默认按文本处理，仓库内统一使用 LF
+* text=auto
+
+# 源码与文档
+*.py   text eol=lf
+*.md   text eol=lf
+*.txt  text eol=lf
+*.spec text eol=lf
+*.in   text eol=lf
+
+# 二进制资源
+*.png  binary
+*.ico  binary

@@ -1,0 +1,99 @@
+# ====================================================================
+# DiscoVista-Next
+# ====================================================================
+
+# ── Python ──────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# 打包与分发产物
+build/
+dist/
+*.egg-info/
+*.egg
+MANIFEST
+downloads/
+eggs/
+.eggs/
+sdist/
+wheels/
+develop-eggs/
+.installed.cfg
+
+# 虚拟环境
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# PyInstaller
+*.spec.bak
+
+# ── 测试与覆盖率 ────────────────────────────────────────────────────
+.tox/
+.nox/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+htmlcov/
+.cache
+
+# ── 类型检查 ────────────────────────────────────────────────────────
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+
+# ── 编辑器与 IDE ────────────────────────────────────────────────────
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+.vscode/
+*.code-workspace
+.project
+.pydevproject
+.settings/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# ── 操作系统 ────────────────────────────────────────────────────────
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.AppleDouble
+.LSOverride
+.directory
+.Trash-*
+
+# ── 文档构建 ────────────────────────────────────────────────────────
+docs/_build/
+site/
+
+# ── 运行时输出 ──────────────────────────────────────────────────────
+results/
+logs/
+*.log
+*.tmp
+*.tmp.*
+
+# ── 示例数据 ────────────────────────────────────────────────────────
+# 仓库只收录 1KP 的参数文件与说明，体积较大的基因树、比对与分析
+# 结果等数据不入库，获取方式见 examples/README.md。
+/examples/1KP/*
+!/examples/1KP/parameters/
+!/examples/1KP/README
