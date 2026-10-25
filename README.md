@@ -238,6 +238,13 @@ The analysis result files use the column order `ID  DS  MONO  BOOT  CLADE  BRANC
 (written by `discovista_next/core/analyzer.py`); the column indices above refer to that
 layout.
 
+## Acknowledgements
+
+Thanks to **Zhiyong Yang (杨智勇)**, who reported the column-index bug in
+`discovista_next/viz/depict_clades.py`: every clade classification degraded to `Missing`
+and the proportion plot broke. That report led to the fix recorded under
+`LOCAL PATCH 20261024-1`.
+
 ## Citation
 
 If you use DiscoVista-Next in your research, please cite the original paper:

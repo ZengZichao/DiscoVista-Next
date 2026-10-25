@@ -229,6 +229,12 @@ python build_exe.py
 分析结果文件的列顺序为 `ID  DS  MONO  BOOT  CLADE  BRANCHLEN`（由
 `discovista_next/core/analyzer.py` 写出），上表的列索引即针对该顺序。
 
+## 致谢
+
+感谢 **杨智勇** 报告 `discovista_next/viz/depict_clades.py` 的列索引缺陷——该问题导致
+全部分类退化为 `Missing`、比例图随之崩溃。本仓库 `LOCAL PATCH 20261024-1` 的修复即由
+这次反馈促成。
+
 ## 引用
 
 如果您在研究中使用 DiscoVista-Next，请引用原始论文：
