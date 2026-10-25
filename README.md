@@ -6,9 +6,7 @@
 [![PyPI](https://img.shields.io/pypi/v/discovista-next.svg)](https://pypi.org/project/discovista-next/)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Platform](https://img.shields.io/badge/platform-windows%20%7C%20macos%20%7C%20linux-lightgrey.svg)]()
-<!-- 在 Zenodo 归档拿到 DOI 后，把下面这行的注释去掉并填入 DOI：
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
--->
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23639011.svg)](https://doi.org/10.5281/zenodo.23639011)
 
 **English** | [简体中文](README.zh-CN.md)
 
@@ -264,7 +262,18 @@ before/after numbers.
 
 ## Citation
 
-If you use DiscoVista-Next in your research, please cite the original paper:
+If you use DiscoVista-Next in your research, please cite this software together with the
+original paper it is based on.
+
+**Software** — archived on Zenodo:
+
+- All versions: [10.5281/zenodo.23639011](https://doi.org/10.5281/zenodo.23639011)
+- This release (v0.1.0): [10.5281/zenodo.23639012](https://doi.org/10.5281/zenodo.23639012)
+
+Machine-readable metadata lives in [CITATION.cff](CITATION.cff), which GitHub's
+"Cite this repository" button reads.
+
+**Original paper**:
 
 > Sayyari, E., Whitfield, J. B., & Mirarab, S. (2018). DiscoVista: Interpretable
 > Visualizations of Gene Tree Discordance. *Molecular Phylogenetics and Evolution*,

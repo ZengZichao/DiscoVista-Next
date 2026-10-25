@@ -33,11 +33,15 @@ keywords:
   - species tree
   - bioinformatics
   - visualization
-# 在 Zenodo 归档拿到 DOI 后取消注释：
-# identifiers:
-#   - type: doi
-#     value: "10.5281/zenodo.XXXXXXX"
-#     description: Archived release on Zenodo
+# Zenodo 归档 DOI：10.5281/zenodo.23639011 为概念 DOI（始终指向最新版），
+# 10.5281/zenodo.23639012 为 v0.1.0 的版本 DOI
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23639011"
+    description: Archived releases on Zenodo (all versions)
+  - type: doi
+    value: "10.5281/zenodo.23639012"
+    description: Archived release v0.1.0
 references:
   - type: article
     title: >-
