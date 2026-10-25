@@ -243,7 +243,9 @@ layout.
 Thanks to **Zhiyong Yang (杨智勇)**, who reported the column-index bug in
 `discovista_next/viz/depict_clades.py`: every clade classification degraded to `Missing`
 and the proportion plot broke. That report led to the fix recorded under
-`LOCAL PATCH 20261024-1`.
+`LOCAL PATCH 20261024-1` — see
+[issue #1](https://github.com/ZengZichao/DiscoVista-Next/issues/1) for the diagnosis and
+before/after numbers.
 
 ## Citation
 

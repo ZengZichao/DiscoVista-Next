@@ -233,7 +233,8 @@ python build_exe.py
 
 感谢 **杨智勇** 报告 `discovista_next/viz/depict_clades.py` 的列索引缺陷——该问题导致
 全部分类退化为 `Missing`、比例图随之崩溃。本仓库 `LOCAL PATCH 20261024-1` 的修复即由
-这次反馈促成。
+这次反馈促成，完整诊断与修复前后数据见
+[issue #1](https://github.com/ZengZichao/DiscoVista-Next/issues/1)。
 
 ## 引用
 
