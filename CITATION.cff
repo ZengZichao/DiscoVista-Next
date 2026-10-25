@@ -19,7 +19,7 @@ authors:
     given-names: Zichao
     affiliation: Shanghai Jiao Tong University
     email: zengzichao@users.noreply.github.com
-    # orcid: "https://orcid.org/0000-0000-0000-0000"   # 填写后取消注释
+    orcid: "https://orcid.org/0000-0001-6553-970X"
 version: 0.1.0
 date-released: 2026-10-24
 license: GPL-3.0-only
