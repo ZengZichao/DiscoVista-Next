@@ -34,7 +34,9 @@ setup(
     },
     python_requires=">=3.8",
     install_requires=[
-        "dendropy>=4.5.0",
+        # LOCAL PATCH 20261024-1：preserve_underscores 已不在 dendropy 5.x
+        # 的公开签名中（仅 **kwargs 透传），锁定已验证的 4.5.2
+        "dendropy==4.5.2",
         "matplotlib>=3.5.0",
         "pandas>=1.3.0",
         "numpy>=1.20.0",

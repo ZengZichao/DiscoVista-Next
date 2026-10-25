@@ -224,6 +224,20 @@ pip install -e .
 python build_exe.py
 ```
 
+## Known Issues and Local Patches
+
+Two fixes in this release are marked `LOCAL PATCH 20261024-1` in the source. Both are
+required — without them the tool does not run correctly.
+
+| Location | Problem | Fix |
+|----------|---------|-----|
+| `discovista_next/viz/depict_clades.py` | The monophyly status of the support-filtered tree was read from the wrong column — `iloc[:, 3]` holds the clade name, not `MONO`. Every classification then collapsed to `Missing` and the proportion plot crashed. | Read `iloc[:, 2]`, the `MONO` column. |
+| `requirements.txt`, `setup.py` | DendroPy 5.x dropped `preserve_underscores` from the public signature of `Tree.get()` / `TreeList.get()`, which the tree-reading code passes in six places. It survives only as an undocumented `**kwargs` passthrough — 5.0.x happens to tolerate it, but it is outside the supported API. | Pin `dendropy==4.5.2`, the version the pipeline is validated against. |
+
+The analysis result files use the column order `ID  DS  MONO  BOOT  CLADE  BRANCHLEN`
+(written by `discovista_next/core/analyzer.py`); the column indices above refer to that
+layout.
+
 ## Citation
 
 If you use DiscoVista-Next in your research, please cite the original paper:

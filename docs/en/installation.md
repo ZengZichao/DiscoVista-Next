@@ -70,7 +70,7 @@ See the "Building EXE" section below.
 
 | Package | Version | Purpose |
 |---------|---------|---------|
-| dendropy | >= 4.5.0 | Phylogenetic tree reading and manipulation |
+| dendropy | == 4.5.2 (pinned) | Phylogenetic tree reading and manipulation |
 | matplotlib | >= 3.5.0 | Data visualization |
 | pandas | >= 1.3.0 | Data processing |
 | numpy | >= 1.20.0 | Numerical computation |

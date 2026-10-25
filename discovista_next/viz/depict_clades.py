@@ -156,11 +156,18 @@ class DepictClades:
         raw_all["BOOT"] = pd.to_numeric(raw_all["BOOT"], errors="coerce")
 
         # 取高支持结果中需要的列
-        raw_hs = raw_hs.iloc[:, [0, 1, 2, 4]]  # ID, DS, CLADE, MONO(75)
+        # 表头顺序（见 core/analyzer.py）：ID  DS  MONO  BOOT  CLADE  BRANCHLEN
+        # 因此 [0, 1, 2, 4] 取到的是 ID, DS, MONO, CLADE
+        raw_hs = raw_hs.iloc[:, [0, 1, 2, 4]]
 
         # 合并
         merged = raw_all[["ID", "DS", "CLADE", "MONO", "BOOT"]].copy()
-        merged["MONO.75"] = raw_hs.iloc[:, 3].values
+        # LOCAL PATCH 20261024-1
+        # 这里要取的是收缩树（高支持阈值）的单系状态 MONO，落在第 2 列。
+        # 原实现取第 3 列，拿到的是 CLADE 名，Classification 于是拼成
+        # "IS_MONO-Zygnematophyceae" 之类的非法组合，在 rename_map 中查不到
+        # 而被全部 fillna("Missing")，比例图随之崩溃。
+        merged["MONO.75"] = raw_hs.iloc[:, 2].values
 
         # 分类
         merged["Classification"] = merged["MONO"].astype(str) + "-" + \

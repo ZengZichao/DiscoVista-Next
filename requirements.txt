@@ -1,7 +1,11 @@
 # DiscoVista-Next Python 依赖
 
 # 系统发育树处理
-dendropy>=4.5.0
+# LOCAL PATCH 20261024-1：锁定 4.5.2。本工具在 tree_tools / find_clades /
+# relative_freq 中共 6 处调用 Tree.get() / TreeList.get() 时传入
+# preserve_underscores，该参数已从 dendropy 5.x 的公开签名中移除，仅作为
+# 未文档化的 **kwargs 透传（跨小版本不保证），故锁定已验证的 4.5.2。
+dendropy==4.5.2
 
 # 数据处理
 pandas>=1.3.0

@@ -217,6 +217,18 @@ pip install -e .
 python build_exe.py
 ```
 
+## 已知问题与本地补丁
+
+本版本在源码中以 `LOCAL PATCH 20261024-1` 标注了两处修复，缺一不可：
+
+| 位置 | 问题 | 修复 |
+|------|------|------|
+| `discovista_next/viz/depict_clades.py` | 收缩树的单系状态列取错：`iloc[:, 3]` 取到的是进化支名而非 `MONO`，导致全部分类退化成 `Missing`，比例图随之崩溃 | 改取 `iloc[:, 2]`（`MONO` 列） |
+| `requirements.txt`、`setup.py` | 读树代码在 `Tree.get()` / `TreeList.get()` 中共 6 处传入 `preserve_underscores`，该参数已从 dendropy 5.x 的公开签名中移除，仅剩未文档化的 `**kwargs` 透传（5.0.x 目前容忍，但不在受支持接口内） | 锁定 `dendropy==4.5.2`（流水线验证所用版本） |
+
+分析结果文件的列顺序为 `ID  DS  MONO  BOOT  CLADE  BRANCHLEN`（由
+`discovista_next/core/analyzer.py` 写出），上表的列索引即针对该顺序。
+
 ## 引用
 
 如果您在研究中使用 DiscoVista-Next，请引用原始论文：
