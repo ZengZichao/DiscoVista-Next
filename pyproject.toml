@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "discovista-next"
+dynamic = ["version"]
+description = "Phylogenetic discordance visualization and analysis - a Python 3 rewrite of DiscoVista"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "GPL-3.0-only"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Zeng Zichao", email = "zengzichao@users.noreply.github.com" },
+]
+keywords = [
+    "phylogenetics",
+    "phylogenomics",
+    "discordance",
+    "gene tree",
+    "species tree",
+    "bioinformatics",
+    "visualization",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = [
+    # LOCAL PATCH 20261024-1: preserve_underscores is no longer part of the
+    # public Tree.get / TreeList.get signature in dendropy 5.x
+    "dendropy==4.5.2",
+    "matplotlib>=3.5.0",
+    "numpy>=1.20.0",
+    "pandas>=1.3.0",
+    "seaborn>=0.11.0",
+    "PySide6>=6.4.0",
+    "qt-material>=2.17",
+]
+
+[project.optional-dependencies]
+dev = [
+    "build>=1.2.1",
+    "twine>=5.0",
+    "pyinstaller>=5.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/ZengZichao/DiscoVista-Next"
+Repository = "https://github.com/ZengZichao/DiscoVista-Next"
+Issues = "https://github.com/ZengZichao/DiscoVista-Next/issues"
+Changelog = "https://github.com/ZengZichao/DiscoVista-Next/blob/main/CHANGELOG.md"
+"Original DiscoVista" = "https://github.com/esayyari/DiscoVista"
+
+[project.scripts]
+discoVista = "discovista_next.cli.main:cli"
+
+[project.gui-scripts]
+discoVista-gui = "discovista_next.gui.main:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "discovista_next.__version__" }
+
+[tool.setuptools.packages.find]
+include = ["discovista_next*"]
+
+[tool.setuptools.package-data]
+discovista_next = ["resources/*.png", "resources/*.ico"]

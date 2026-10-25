@@ -1,66 +1,17 @@
 #!/usr/bin/env python3
 """
-DiscoVista-Next 安装配置
+DiscoVista-Next 打包入口
 ========================
+
+所有元数据（名称、版本、依赖、入口点、URL 等）都定义在 ``pyproject.toml``，
+本文件只保留给仍以 ``python setup.py ...`` 方式调用的旧工具链使用。
 
 ::
 
-    pip install -e .
+    pip install -e .      # 开发模式安装
+    python -m build       # 构建 sdist + wheel
 """
 
-from setuptools import setup, find_packages
+from setuptools import setup
 
-with open("README.md", "r", encoding="utf-8") as fh:
-    long_description = fh.read()
-
-setup(
-    name="discovista-next",
-    version="0.1.0",
-    author="DiscoVista-Next Team",
-    description=(
-        "DiscoVista-Next: Python 3 rewrite of DiscoVista - "
-        "Phylogenetic discordance visualization & analysis tool"
-    ),
-    long_description=long_description,
-    long_description_content_type="text/markdown",
-    license="GPL-3.0",
-    packages=find_packages(),
-    include_package_data=True,
-    package_data={
-        "discovista_next": [
-            "resources/*.png",
-            "resources/*.ico",
-        ],
-    },
-    python_requires=">=3.8",
-    install_requires=[
-        # LOCAL PATCH 20261024-1：preserve_underscores 已不在 dendropy 5.x
-        # 的公开签名中（仅 **kwargs 透传），锁定已验证的 4.5.2
-        "dendropy==4.5.2",
-        "matplotlib>=3.5.0",
-        "pandas>=1.3.0",
-        "numpy>=1.20.0",
-        "seaborn>=0.11.0",
-        "PySide6>=6.4.0",
-        "qt-material>=2.17",
-    ],
-    entry_points={
-        "console_scripts": [
-            "discoVista=discovista_next.cli.main:cli",
-        ],
-        "gui_scripts": [
-            "discoVista-gui=discovista_next.gui.main:main",
-        ],
-    },
-    classifiers=[
-        "Development Status :: 3 - Alpha",
-        "Intended Audience :: Science/Research",
-        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
-        "Programming Language :: Python :: 3.11",
-        "Topic :: Scientific/Engineering :: Bio-Informatics",
-    ],
-)
+setup()

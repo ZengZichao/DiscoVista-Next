@@ -1,0 +1,38 @@
+{
+  "title": "DiscoVista-Next: phylogenetic discordance visualization and analysis in Python 3",
+  "description": "<p>DiscoVista-Next is a Python 3 rewrite of DiscoVista (Discordance Visualization Tool) that removes the R dependency of the original tool while keeping its input formats and command-line conventions.</p><p>Features:</p><ul><li>Six analysis modes: species tree discordance, gene tree discordance, GC content, occupancy, branch support versus branch length, and relative frequency</li><li>qt-material based graphical interface with 26 color themes and Chinese/English switching</li><li>Command-line interface compatible with the original DiscoVista argument format</li><li>matplotlib + seaborn visualization replacing ggplot2</li><li>PyInstaller packaging support for standalone executables</li><li>Bilingual documentation (Chinese/English)</li></ul><p>Source code: <a href=\"https://github.com/ZengZichao/DiscoVista-Next\">https://github.com/ZengZichao/DiscoVista-Next</a></p>",
+  "creators": [
+    {
+      "name": "Zeng, Zichao",
+      "affiliation": "Shanghai Jiao Tong University"
+    }
+  ],
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "gpl-3.0-only",
+  "language": "eng",
+  "version": "0.1.0",
+  "keywords": [
+    "phylogenetics",
+    "phylogenomics",
+    "discordance",
+    "gene tree",
+    "species tree",
+    "bioinformatics",
+    "visualization"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/esayyari/DiscoVista",
+      "relation": "isDerivedFrom",
+      "scheme": "url",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "10.1016/j.ympev.2018.01.019",
+      "relation": "references",
+      "scheme": "doi",
+      "resource_type": "publication-article"
+    }
+  ]
+}

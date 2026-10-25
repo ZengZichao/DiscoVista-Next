@@ -5,6 +5,8 @@ include README.md
 include README.zh-CN.md
 include CHANGELOG.md
 include LICENSE
+include pyproject.toml
+include CITATION.cff
 include requirements.txt
 include setup.py
 include build_exe.py

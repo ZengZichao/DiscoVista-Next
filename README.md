@@ -3,8 +3,12 @@
 **Phylogenetic discordance visualization and analysis** — a complete Python 3 rewrite
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![PyPI](https://img.shields.io/pypi/v/discovista-next.svg)](https://pypi.org/project/discovista-next/)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Platform](https://img.shields.io/badge/platform-windows%20%7C%20macos%20%7C%20linux-lightgrey.svg)]()
+<!-- 在 Zenodo 归档拿到 DOI 后，把下面这行的注释去掉并填入 DOI：
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+-->
 
 **English** | [简体中文](README.zh-CN.md)
 
@@ -31,6 +35,14 @@ adds a graphical interface built on qt-material.
 ## Quick Start
 
 ### Installation
+
+From PyPI (recommended for users):
+
+```bash
+pip install discovista-next
+```
+
+From source (recommended for development):
 
 ```bash
 # Clone the repository
@@ -155,10 +167,13 @@ DiscoVista-Next/
 │   ├── en/                    # English docs
 │   └── zh/                    # Chinese docs
 ├── examples/1KP/              # Example data (parameter files + fetch instructions)
+├── .github/workflows/         # CI: publish to PyPI on release
 ├── build_exe.py               # PyInstaller build script
 ├── DiscoVista-Next.spec       # PyInstaller spec file
+├── pyproject.toml             # Package metadata and build configuration
+├── CITATION.cff               # Citation metadata (GitHub / Zenodo)
 ├── requirements.txt           # Python dependencies
-├── setup.py                   # Installation configuration
+├── setup.py                   # Legacy shim (metadata lives in pyproject.toml)
 ├── LICENSE                    # GPL-3.0 license
 ├── README.md                  # This file (English)
 └── README.zh-CN.md            # Chinese README

@@ -1,0 +1,57 @@
+cff-version: 1.2.0
+message: >-
+  If you use DiscoVista-Next in your research, please cite this software
+  together with the original DiscoVista paper listed under references.
+title: >-
+  DiscoVista-Next: phylogenetic discordance visualization and analysis in
+  Python 3
+abstract: >-
+  DiscoVista-Next is a Python 3 rewrite of DiscoVista that removes the R
+  dependency of the original tool. It provides six analysis modes for
+  phylogenetic discordance (species tree discordance, gene tree discordance,
+  GC content, occupancy, branch support versus branch length, and relative
+  frequency), a qt-material based graphical interface with 26 themes and
+  Chinese/English switching, a command-line interface compatible with the
+  original argument format, and PyInstaller packaging support.
+type: software
+authors:
+  - family-names: Zeng
+    given-names: Zichao
+    affiliation: Shanghai Jiao Tong University
+    email: zengzichao@users.noreply.github.com
+    # orcid: "https://orcid.org/0000-0000-0000-0000"   # 填写后取消注释
+version: 0.1.0
+date-released: 2026-10-24
+license: GPL-3.0-only
+repository-code: https://github.com/ZengZichao/DiscoVista-Next
+url: https://github.com/ZengZichao/DiscoVista-Next
+keywords:
+  - phylogenetics
+  - phylogenomics
+  - discordance
+  - gene tree
+  - species tree
+  - bioinformatics
+  - visualization
+# 在 Zenodo 归档拿到 DOI 后取消注释：
+# identifiers:
+#   - type: doi
+#     value: "10.5281/zenodo.XXXXXXX"
+#     description: Archived release on Zenodo
+references:
+  - type: article
+    title: >-
+      DiscoVista: Interpretable visualizations of gene tree discordance
+    authors:
+      - family-names: Sayyari
+        given-names: Erfan
+      - family-names: Whitfield
+        given-names: James B.
+      - family-names: Mirarab
+        given-names: Siavash
+    year: 2018
+    journal: Molecular Phylogenetics and Evolution
+    volume: 122
+    start: 110
+    end: 115
+    doi: 10.1016/j.ympev.2018.01.019

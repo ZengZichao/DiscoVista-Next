@@ -3,8 +3,12 @@
 **系统发育不一致性可视化与分析工具** — Python 3 全面重写版
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![PyPI](https://img.shields.io/pypi/v/discovista-next.svg)](https://pypi.org/project/discovista-next/)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Platform](https://img.shields.io/badge/platform-windows%20%7C%20macos%20%7C%20linux-lightgrey.svg)]()
+<!-- 在 Zenodo 归档拿到 DOI 后，把下面这行的注释去掉并填入 DOI：
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+-->
 
 [English](README.md) | **简体中文**
 
@@ -26,6 +30,14 @@ DiscoVista-Next 是原 [DiscoVista](https://github.com/esayyari/DiscoVista)（Di
 ## 快速开始
 
 ### 安装
+
+从 PyPI 安装（推荐终端用户）：
+
+```bash
+pip install discovista-next
+```
+
+从源码安装（推荐开发）：
 
 ```bash
 # 克隆仓库
@@ -150,10 +162,13 @@ DiscoVista-Next/
 │   ├── en/                    # 英文文档
 │   └── zh/                    # 中文文档
 ├── examples/1KP/              # 示例数据（参数文件 + 获取说明）
+├── .github/workflows/         # CI：发布 Release 时自动上传 PyPI
 ├── build_exe.py               # PyInstaller 构建脚本
 ├── DiscoVista-Next.spec       # PyInstaller spec 文件
+├── pyproject.toml             # 打包元数据与构建配置
+├── CITATION.cff               # 引用元数据（GitHub / Zenodo）
 ├── requirements.txt           # Python 依赖
-├── setup.py                   # 安装配置
+├── setup.py                   # 兼容旧工具链的入口（元数据在 pyproject.toml）
 ├── LICENSE                    # GPL-3.0 许可证
 ├── README.md                  # 英文说明
 └── README.zh-CN.md            # 本文件（中文）
