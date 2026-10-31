@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DiscoVista-Next — Phylogenetic Discordance Visualization</title>
+  <meta name="description" content="DiscoVista-Next: A Python 3 rewrite of DiscoVista for phylogenetic discordance visualization and analysis.">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ───────────────────────── Header ───────────────────────── -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">D</span>
+      <span class="logo-text">DiscoVista<span class="logo-accent">-Next</span></span>
+    </a>
+    <nav class="site-nav">
+      <a href="#overview">Overview</a>
+      <a href="#features">Features</a>
+      <a href="#modes">Analysis Modes</a>
+      <a href="#quickstart">Quick Start</a>
+      <a href="#comparison">Comparison</a>
+      <a href="https://github.com/ZengZichao/DiscoVista-Next" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ───────────────────────── Hero ───────────────────────── -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badges">
+      <span class="badge">GPL-3.0</span>
+      <span class="badge">Python 3.8+</span>
+      <span class="badge">v0.1.0</span>
+      <span class="badge badge--doi">DOI: 10.5281/zenodo.23639011</span>
+    </div>
+    <h1 class="hero-title">
+      Phylogenetic Discordance<br>
+      Visualization &amp; Analysis
+    </h1>
+    <p class="hero-subtitle">
+      A complete Python&nbsp;3 rewrite of
+      <a href="https://github.com/esayyari/DiscoVista" target="_blank" rel="noopener">DiscoVista</a>
+      — eliminating all R dependencies while preserving the full analytical capability
+      of the original tool, with a modern graphical interface.
+    </p>
+    <div class="hero-actions">
+      <a href="#quickstart" class="btn btn--primary">Get Started</a>
+      <a href="https://github.com/ZengZichao/DiscoVista-Next" target="_blank" rel="noopener" class="btn btn--ghost">View on GitHub</a>
+      <a href="https://doi.org/10.5281/zenodo.23639011" target="_blank" rel="noopener" class="btn btn--ghost">Cite</a>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── Overview ───────────────────────── -->
+<section id="overview" class="section">
+  <div class="container">
+    <h2 class="section-title">Overview</h2>
+    <div class="section-body">
+      <p>
+        DiscoVista-Next is a complete Python&nbsp;3 rewrite of the original
+        <a href="https://github.com/esayyari/DiscoVista" target="_blank" rel="noopener">DiscoVista</a>
+        (Discordance Visualization Tool), written by Erfan Sayyari and Siavash Mirarab
+        on a mixed Python&nbsp;2 + R stack. This version reimplements every R dependency
+        (ggplot2, reshape2, plyr, ape, optparse, …) in Python&nbsp;3 and adds a graphical
+        interface built on qt-material.
+      </p>
+      <p>
+        It provides six analysis modes for phylogenetic discordance, supports both
+        command-line and graphical workflows, and ships with example data from the
+        1KP plant dataset — making it easy to reproduce published figures and apply
+        the tool to new datasets.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── Key Features ───────────────────────── -->
+<section id="features" class="section section--alt">
+  <div class="container">
+    <h2 class="section-title">Key Features</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🐍</div>
+        <h3>Pure Python 3</h3>
+        <p>No R installation or R packages required. All dependencies are pip-installable.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Six Analysis Modes</h3>
+        <p>Species tree discordance, gene tree discordance, GC content, occupancy, branch statistics, and relative frequency.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎨</div>
+        <h3>Complete Visualization</h3>
+        <p>matplotlib + seaborn replace ggplot2, producing publication-ready figures.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🖥️</div>
+        <h3>Graphical Interface</h3>
+        <p>Modern qt-material GUI with 26 built-in color themes and bilingual (EN/ZH) support.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⌨️</div>
+        <h3>CLI Compatible</h3>
+        <p>Command-line interface compatible with the original DiscoVista argument format.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📦</div>
+        <h3>Standalone Executable</h3>
+        <p>Build a self-contained exe that runs without a Python installation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── Analysis Modes ───────────────────────── -->
+<section id="modes" class="section">
+  <div class="container">
+    <h2 class="section-title">Analysis Modes</h2>
+    <div class="mode-table-wrap">
+      <table class="mode-table">
+        <thead>
+          <tr>
+            <th>Mode</th>
+            <th>Analysis</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>-m 0</code></td>
+            <td>Species Tree Discordance</td>
+            <td>Visualize discordance between species trees and gene trees at defined clades.</td>
+          </tr>
+          <tr>
+            <td><code>-m 1</code></td>
+            <td>Gene Tree Discordance</td>
+            <td>Analyze gene tree discordance patterns across model conditions.</td>
+          </tr>
+          <tr>
+            <td><code>-m 2</code></td>
+            <td>GC Content</td>
+            <td>Plot GC content distribution across sequences and taxa.</td>
+          </tr>
+          <tr>
+            <td><code>-m 3</code></td>
+            <td>Occupancy</td>
+            <td>Display taxon occupancy across gene alignments or model conditions.</td>
+          </tr>
+          <tr>
+            <td><code>-m 4</code></td>
+            <td>Branch Statistics</td>
+            <td>Plot branch support versus branch length for phylogenetic trees.</td>
+          </tr>
+          <tr>
+            <td><code>-m 5</code></td>
+            <td>Relative Frequency</td>
+            <td>Analyze the relative frequency of bipartitions across bootstrap replicates.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── Quick Start ───────────────────────── -->
+<section id="quickstart" class="section section--alt">
+  <div class="container">
+    <h2 class="section-title">Quick Start</h2>
+
+    <h3 class="subsection-title">Installation</h3>
+    <div class="code-block">
+      <div class="code-label">From PyPI (recommended for users)</div>
+<pre><code>pip install discovista-next</code></pre>
+    </div>
+
+    <div class="code-block">
+      <div class="code-label">From source (recommended for development)</div>
+<pre><code>git clone https://github.com/ZengZichao/DiscoVista-Next.git
+cd DiscoVista-Next
+pip install -r requirements.txt
+pip install -e .</code></pre>
+    </div>
+
+    <h3 class="subsection-title">Command Line</h3>
+    <div class="code-block">
+      <div class="code-label">Species tree discordance (mode 0)</div>
+<pre><code>discoVista -m 0 \
+  -c examples/1KP/parameters/clade-defs.txt \
+  -p examples/1KP/species/ \
+  -t 95 -o results/</code></pre>
+    </div>
+
+    <div class="code-block">
+      <div class="code-label">GC content analysis (mode 2)</div>
+<pre><code>discoVista -m 2 \
+  -p examples/1KP/GC/unfiltered/ \
+  -o results/</code></pre>
+    </div>
+
+    <h3 class="subsection-title">Launch the GUI</h3>
+    <div class="code-block">
+<pre><code>discoVista-gui
+# or
+python -m discovista_next.gui.main</code></pre>
+    </div>
+
+    <div class="callout">
+      <strong>Standalone executable:</strong>
+      Run <code>DiscoVista-Next.exe</code> directly — no Python installation needed.
+      Build it with <code>python build_exe.py</code>.
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── Comparison ───────────────────────── -->
+<section id="comparison" class="section">
+  <div class="container">
+    <h2 class="section-title">Feature Coverage</h2>
+    <p class="section-intro">
+      DiscoVista-Next covers the full feature set of the original DiscoVista, with
+      several additions.
+    </p>
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="col-center">Original</th>
+            <th class="col-center">DiscoVista-Next</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Species tree discordance</td><td class="col-center">✅</td><td class="col-center">✅</td></tr>
+          <tr><td>Gene tree discordance</td><td class="col-center">✅</td><td class="col-center">✅</td></tr>
+          <tr><td>GC content analysis</td><td class="col-center">✅</td><td class="col-center">✅</td></tr>
+          <tr><td>Occupancy analysis</td><td class="col-center">✅</td><td class="col-center">✅</td></tr>
+          <tr><td>Branch support vs branch length</td><td class="col-center">✅</td><td class="col-center">✅</td></tr>
+          <tr><td>Relative frequency analysis</td><td class="col-center">✅</td><td class="col-center">✅</td></tr>
+          <tr><td>Clade / annotation / rooting files</td><td class="col-center">✅</td><td class="col-center">✅</td></tr>
+          <tr><td>Missing data handling</td><td class="col-center">✅</td><td class="col-center">✅</td></tr>
+          <tr class="highlight-row"><td>Graphical interface</td><td class="col-center">❌</td><td class="col-center">✅ 26 themes</td></tr>
+          <tr class="highlight-row"><td>English / Chinese switching</td><td class="col-center">❌</td><td class="col-center">✅</td></tr>
+          <tr class="highlight-row"><td>Standalone executable</td><td class="col-center">❌</td><td class="col-center">✅</td></tr>
+          <tr class="highlight-row"><td>Bundled example data</td><td class="col-center">✅ manual</td><td class="col-center">✅ in repo</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── Citation ───────────────────────── -->
+<section class="section section--alt">
+  <div class="container">
+    <h2 class="section-title">Citation</h2>
+    <p class="section-intro">
+      If you use DiscoVista-Next in your research, please cite this software together
+      with the original paper it is based on.
+    </p>
+
+    <h3 class="subsection-title">Software</h3>
+    <div class="citation-box">
+      <p>Zeng, Z. (2026). DiscoVista-Next: phylogenetic discordance visualization and
+      analysis in Python 3 (v0.1.0).
+      <a href="https://doi.org/10.5281/zenodo.23639011" target="_blank" rel="noopener">doi:10.5281/zenodo.23639011</a></p>
+    </div>
+
+    <h3 class="subsection-title">Original Paper</h3>
+    <div class="citation-box">
+      <p>Sayyari, E., Whitfield, J. B., &amp; Mirarab, S. (2018). DiscoVista: Interpretable
+      Visualizations of Gene Tree Discordance. <em>Molecular Phylogenetics and Evolution</em>,
+      122, 110–115.
+      <a href="https://doi.org/10.1016/j.ympev.2018.01.019" target="_blank" rel="noopener">doi:10.1016/j.ympev.2018.01.019</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── Footer ───────────────────────── -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <div class="footer-logo">
+        <span class="logo-mark">D</span>
+        <span class="logo-text">DiscoVista<span class="logo-accent">-Next</span></span>
+      </div>
+      <p class="footer-desc">
+        Phylogenetic discordance visualization and analysis — Python 3 rewrite.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Links</h4>
+      <ul>
+        <li><a href="https://github.com/ZengZichao/DiscoVista-Next" target="_blank" rel="noopener">GitHub Repository</a></li>
+        <li><a href="https://pypi.org/project/discovista-next/" target="_blank" rel="noopener">PyPI Package</a></li>
+        <li><a href="https://doi.org/10.5281/zenodo.23639011" target="_blank" rel="noopener">Zenodo Archive</a></li>
+        <li><a href="https://github.com/ZengZichao/DiscoVista-Next/issues" target="_blank" rel="noopener">Issue Tracker</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Documentation</h4>
+      <ul>
+        <li><a href="https://github.com/ZengZichao/DiscoVista-Next/blob/main/docs/en/installation.md" target="_blank" rel="noopener">Installation Guide</a></li>
+        <li><a href="https://github.com/ZengZichao/DiscoVista-Next/blob/main/docs/en/user_guide.md" target="_blank" rel="noopener">User Guide</a></li>
+        <li><a href="https://github.com/ZengZichao/DiscoVista-Next/blob/main/docs/en/developer_guide.md" target="_blank" rel="noopener">Developer Guide</a></li>
+        <li><a href="https://github.com/ZengZichao/DiscoVista-Next/blob/main/docs/en/faq.md" target="_blank" rel="noopener">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Reference</h4>
+      <ul>
+        <li><a href="https://github.com/esayyari/DiscoVista" target="_blank" rel="noopener">Original DiscoVista</a></li>
+        <li><a href="https://doi.org/10.1016/j.ympev.2018.01.019" target="_blank" rel="noopener">Sayyari et al. (2018)</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>Released under the <a href="https://www.gnu.org/licenses/gpl-3.0" target="_blank" rel="noopener">GPL-3.0</a> License · © 2026 Zeng Zichao</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
